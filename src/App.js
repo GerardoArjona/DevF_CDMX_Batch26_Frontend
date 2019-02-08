@@ -1,15 +1,16 @@
-import 'bootstrap/dist/css/bootstrap.css';
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import { ApolloProvider } from 'react-apollo';
-import clientGraphql from './Graphql';
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
+import $ from 'jquery';
+import 'bootstrap/dist/js/bootstrap.js';
+import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
-import TestComponent from './components/test';
-import { Navbar as NavBarComponent } from './common/Navbar';
-import NoMatch from './common/NoMatch';
-import RegisterForm from './components/FormRegister';
+
+import logo from './logo.svg';
+import clientGraphql from './Graphql';
+import routes from './config/routes';
+import { Navbar as NavBarComponent } from './common/Navbar/index';
 
 class App extends Component {
   render() {
@@ -19,9 +20,7 @@ class App extends Component {
           <React.Fragment>
             <NavBarComponent />
             <Switch>
-              <Route exact path="/" component={TestComponent} />
-              <Route path="/singup" component={RegisterForm} />
-              <Route component={NoMatch} />
+              {routes}
             </Switch>
           </React.Fragment>
         </Router>
