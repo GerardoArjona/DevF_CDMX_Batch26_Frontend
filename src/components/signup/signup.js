@@ -2,6 +2,7 @@ import React from 'react';
 import { Mutation } from 'react-apollo';
 import gql from "graphql-tag";
 import SignUpForm from './signup-form';
+import { Redirect } from 'react-router-dom';
 
 const SIGNUP = gql`
     mutation Register($first_name:String!,$last_name:String!,$email:String!,
@@ -68,8 +69,8 @@ class Signup extends React.Component {
                 {
                     (signup, { data, error }) => {
                         if (data) {
-                            localStorage.setItem("postsToken", data.signup.token)
-                            console.log(localStorage.getItem("postsToken"))
+                            localStorage.setItem("postsToken", data.signup.token);
+                            return <Redirect to="/posts" />
                         }
                         if (error) console.log('ERROR--', error)
                         return (

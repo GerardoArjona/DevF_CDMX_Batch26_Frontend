@@ -8,12 +8,12 @@ import { Posts, PostDetail }  from '../components/Posts/index';
 import TestComponent from '../components/test';
 import isAuthenticated from '../isAuthenticated';
 import NoMatchComponent from '../common/NoMatch';
+import FormPosts from '../components/Posts/formPost';
 
 const Logout = () => {
     localStorage.removeItem("postsToken")
     return <Redirect to="/login" />
 }
-
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route  {...rest} render={
@@ -25,11 +25,12 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 )
 
 export default [
-    <Route exact path="/" component={TestComponent} />,
+    <PrivateRoute exact path="/" component={FormPosts} />,
     <Route exact path="/login" component={Login} />,
     <PrivateRoute exact path="/posts" component={Posts} />,
     <PrivateRoute path="/posts/:id" component={PostDetail} />,
     <Route path="/signup" component={SignUp} />,
+    <Route path="/logout" component={Logout} />,
     <Route component={NoMatchComponent}/>
 ]
 
