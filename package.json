@@ -3,11 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/polyfill": "^7.2.5",
     "apollo-cache-inmemory": "^1.4.2",
     "apollo-client": "^2.4.12",
     "apollo-link-context": "^1.0.14",
     "apollo-link-http": "^1.5.11",
+    "apollo-upload-client": "^10.0.0",
     "bootstrap": "^4.2.1",
+    "classnames": "^2.2.6",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.9.1",
     "graphql": "^14.1.1",
@@ -18,6 +21,7 @@
     "react": "^16.7.0",
     "react-apollo": "^2.4.1",
     "react-dom": "^16.7.0",
+    "react-dropzone": "^8.1.0",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.3"

@@ -1,3 +1,4 @@
+import "@babel/polyfill";
 import React, { Component } from 'react';
 import { ApolloProvider } from 'react-apollo';
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
