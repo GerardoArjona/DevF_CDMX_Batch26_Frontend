@@ -11,7 +11,9 @@ class SignupForm extends React.Component {
         }
     }
     onDrop(acceptedFiles) {
+        this.props.handleImage(acceptedFiles[0]);
         acceptedFiles.forEach(file => {
+            
             const reader = new FileReader();
             reader.onload = () => {
                 const fileAsBinaryString = reader.result;

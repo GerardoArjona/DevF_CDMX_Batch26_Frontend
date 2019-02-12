@@ -67,7 +67,10 @@ class Signup extends React.Component {
             <Mutation mutation={SIGNUP}>
                 {
                     (signup, { data, error }) => {
-                        if (data) console.log('RESPOSE--', data)
+                        if (data) {
+                            localStorage.setItem("postsToken", data.signup.token)
+                            console.log(localStorage.getItem("postsToken"))
+                        }
                         if (error) console.log('ERROR--', error)
                         return (
                             <SignUpForm

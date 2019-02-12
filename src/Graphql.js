@@ -3,7 +3,7 @@ import { setContext } from 'apollo-link-context' //Setear cabezeras en el reques
 import { InMemoryCache } from 'apollo-cache-inmemory' //Cache graphl cache
 import { createUploadLink } from 'apollo-upload-client';
 
-const API_URL = "http://production2.9mcnp4cyz2.us-west-1.elasticbeanstalk.com";
+const API_URL = "http://production3.ckjjwqkmhs.us-west-1.elasticbeanstalk.com";
 
 const httplink = createUploadLink({
     uri: `${API_URL}/graphql`,
