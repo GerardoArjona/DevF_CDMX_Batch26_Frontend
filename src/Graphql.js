@@ -3,11 +3,7 @@ import { setContext } from 'apollo-link-context' //Setear cabezeras en el reques
 import { InMemoryCache } from 'apollo-cache-inmemory' //Cache graphl cache
 import { createUploadLink } from 'apollo-upload-client';
 
-<<<<<<< HEAD
-const API_URL = "http://172.16.1.74:8000";
-=======
 const API_URL = "http://production3.ckjjwqkmhs.us-west-1.elasticbeanstalk.com";
->>>>>>> signupForm
 
 const httplink = createUploadLink({
     uri: `${API_URL}/graphql`,
