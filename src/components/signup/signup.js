@@ -5,7 +5,7 @@ import SignUpForm from './signup-form';
 
 const SIGNUP = gql`
     mutation Register($first_name:String!,$last_name:String!,$email:String!,
-    $password:String!, $profile_image: Upload!){
+    $password:String!, $profile_image: Upload){
         signup(data:{
             first_name:$first_name,
             last_name:$last_name,
@@ -27,7 +27,7 @@ class Signup extends React.Component {
                 last_name: '',
                 email: '',
                 password: '',
-                profile_image: {},
+                profile_image: [],
             }
         }
         this.handleChange = this.handleChange.bind(this);
