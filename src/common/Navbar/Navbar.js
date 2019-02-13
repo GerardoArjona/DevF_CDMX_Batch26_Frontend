@@ -1,8 +1,19 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import gql from 'graphql-tag';
+import { Subscription } from 'react-apollo';
 
 import payload from '../../payload';
 import isAuthenticated from '../../isAuthenticated';
+
+
+const POSTS_SUBSCRIPTION = gql`
+subscription {
+    newPosts {
+    numberNewPosts
+    }
+}
+`;
 
 class Navbar extends Component {
     constructor() {
@@ -16,6 +27,20 @@ class Navbar extends Component {
         if (isAuthenticated()) {
             return (
                 <ul className="navbar-nav ml-auto">
+                    <li>
+                        <Subscription
+                            subscription={POSTS_SUBSCRIPTION}
+                            variables={{}}
+                        >
+                            {({ data, loading }) => {
+                                if (data) console.log('data: ', data)
+                                if (loading) return <h1>Cargando..</h1>
+                                return (
+                                    <div>Total:{data.newPosts.numberNewPosts}</div>
+                                )
+                            }}
+                        </Subscription>
+                    </li>
                     <li className="nav-item">
                         <a className="nav-link" href="/me">
                             Bienvenido {payload().email}
